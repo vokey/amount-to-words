@@ -18,7 +18,6 @@ def int_to_words(amount) -> str:
     res_str = res_str.replace('零拾', '零')
     res_str = res_str.replace('零佰', '零')
     res_str = res_str.replace('零仟', '零')
-    res_str = res_str.replace('零万', '零')
     
     # Remove trailing zeros
     while '零零' in res_str:
@@ -26,7 +25,11 @@ def int_to_words(amount) -> str:
     
     # Remove unnecessary zero
     res_str = res_str.replace('零亿', '亿')
+    res_str = res_str.replace('零万', '万')
     res_str = res_str.replace('零元', '元')
+
+    # Remove unnecessary unit
+    res_str = res_str.replace('亿万', '亿')
     
     return res_str
 
